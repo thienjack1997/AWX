@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+    - name: Show running-config on Aruba AP
+      ansible.builtin.command: show running-config
+      vars:
+        ansible_ssh_extra_args: '-o KexAlgorithms=+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1'
+      register: output
+
+    - name: Display the running-config
+      ansible.builtin.debug:
+        var: output.stdout
