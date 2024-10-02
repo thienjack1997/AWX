@@ -1,5 +1,6 @@
 - hosts: aruba_ap
-  gather_facts: no
+  collections:
+    - arubanetworks.aruba_central
   tasks:
     - name: Show running-config on Aruba AP
       ansible.netcommon.cli_command:
