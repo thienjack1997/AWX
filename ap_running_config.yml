@@ -3,7 +3,7 @@
     - arubanetworks.aruba_central
   tasks:
     - name: Show running-config on Aruba AP
-      ansible.netcommon.cli_command:
+      arubanetworks.aruba_central.aruba_cli_command:
         command: show running-config
       register: output
 
